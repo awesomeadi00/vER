@@ -6,8 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/calibration.unity
+    guid: bcf28b696bc5eff44ac471f047bed62c
+  - enabled: 1
     path: Assets/Scenes/Male_No-Friends.unity
     guid: 7a4a7a8dbf8ec044393529acdc798aca
+  - enabled: 1
+    path: Assets/Scenes/Male_Friends.unity
+    guid: e367fbb161de1da41979b247d2e990de
+  - enabled: 1
+    path: Assets/Scenes/Female_Friends.unity
+    guid: b632767cf147fdb438beb8dee62b501b
+  - enabled: 1
+    path: Assets/Scenes/Female_No-Friends.unity
+    guid: 6bcc3267b26dd2142a2bab6562faa7a2
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 29019afd4af420149952737aee2ddff9, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: adf860c9f92796046ae099cf29ae5973, type: 2}
