@@ -41,6 +41,7 @@ public class NursePatrol : MonoBehaviour
 
             // Move to the current patrol point
             yield return MoveToPoint(patrolPoints[currentPatrolIndex].position);
+            Debug.Log(currentPatrolIndex);
 
             // Reached patrol point, idle for a random time
             SetWalking(false);
@@ -52,17 +53,7 @@ public class NursePatrol : MonoBehaviour
                 currentPatrolIndex++;
                 if (currentPatrolIndex >= patrolPoints.Length)
                 {
-                    currentPatrolIndex = patrolPoints.Length - 1;
-                    movingForward = false;
-                }
-            }
-            else
-            {
-                currentPatrolIndex--;
-                if (currentPatrolIndex < 0)
-                {
                     currentPatrolIndex = 0;
-                    movingForward = true;
                 }
             }
         }

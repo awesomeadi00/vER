@@ -4185,7 +4185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1411516550990969898, guid: 1c0a1103aa90aff45a648827e87681a5, type: 3}
       propertyPath: near clip plane
-      value: 0.1
+      value: 0.10155637
       objectReference: {fileID: 0}
     - target: {fileID: 1411516550990969898, guid: 1c0a1103aa90aff45a648827e87681a5, type: 3}
       propertyPath: orthographic size
@@ -5059,6 +5059,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Receptionist
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: dde95de550609664798c629de49c8f7a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 74b5f8ccdc54a7b40b33150a4cc0b3dc, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8959,10 +8963,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nurse (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 0b13ca56f4cedf84895445955b2b24d7, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 74b5f8ccdc54a7b40b33150a4cc0b3dc, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0b13ca56f4cedf84895445955b2b24d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1380273783}
   m_SourcePrefab: {fileID: 100100000, guid: 0b13ca56f4cedf84895445955b2b24d7, type: 3}
 --- !u!4 &1245804401 stripped
 Transform:
@@ -9403,6 +9414,31 @@ MonoBehaviour:
   _blinking: []
   m_leftRight: 0
   m_downUp: 0
+--- !u!1 &1380273782 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0b13ca56f4cedf84895445955b2b24d7, type: 3}
+  m_PrefabInstance: {fileID: 1245804400}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1380273783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380273782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62fb363c982352c4397334571874f91e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolPoints:
+  - {fileID: 1692624232}
+  - {fileID: 1584555909}
+  - {fileID: 109607854}
+  - {fileID: 1584555909}
+  movementSpeed: 2
+  idleTimeMin: 2
+  idleTimeMax: 5
 --- !u!1 &1386617499
 GameObject:
   m_ObjectHideFlags: 0
@@ -10573,6 +10609,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nurse
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 0b13ca56f4cedf84895445955b2b24d7, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 74b5f8ccdc54a7b40b33150a4cc0b3dc, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -86,6 +86,8 @@ public class DoctorMovement : MonoBehaviour
     IEnumerator TalkingPhase()
     {
         Debug.Log("Doctor starts talking.");
+        
+        transform.Rotate(0, -45, 0);
 
         // Trigger the 'near_user' animation parameter to transition to talking
         animator.SetTrigger("near_user");
