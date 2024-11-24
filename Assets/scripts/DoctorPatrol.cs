@@ -1,10 +1,13 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DoctorMovement : MonoBehaviour
 {
     public GameObject wheelChair;
-    public AudioSource doctorAudio;
+    public Button readyButton;
+    private AudioSource doctorAudio;
     public Transform[] patrolPoints; // Array of patrol points
     public float idleTime = 5f; // Time the doctor stays idle at the beginning
     public float talkingTime = 5f; // Time the doctor spends talking at the end
@@ -32,7 +35,8 @@ public class DoctorMovement : MonoBehaviour
             return;
         }
 
-        wheelChair.SetActive(false); 
+        wheelChair.SetActive(false);
+        readyButton.gameObject.SetActive(false);
 
         StartCoroutine(DoctorBehaviorRoutine());
     }
@@ -63,6 +67,8 @@ public class DoctorMovement : MonoBehaviour
         yield return TalkingPhase();
 
         wheelChair.SetActive(true);
+        readyButton.gameObject.SetActive(true);
+
 
         // Walking away phase (in reverse)
         yield return WalkingAwayPatientPhase();

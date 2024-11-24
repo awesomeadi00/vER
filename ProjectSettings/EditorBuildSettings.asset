@@ -15,10 +15,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Male_Friends.unity
     guid: e367fbb161de1da41979b247d2e990de
   - enabled: 1
-    path: Assets/Scenes/Female_Friends.unity
+    path: Assets/Scenes/With_Friends.unity
     guid: b632767cf147fdb438beb8dee62b501b
   - enabled: 1
-    path: Assets/Scenes/Female_No-Friends.unity
+    path: Assets/Scenes/Without_Friends.unity
     guid: 6bcc3267b26dd2142a2bab6562faa7a2
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 63af2cd6c459a4a8ea98fb4798689b64, type: 2}
