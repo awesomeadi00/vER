@@ -30,19 +30,37 @@ public class DoctorMovement : MonoBehaviour
 
         StartCoroutine(DoctorBehaviorRoutine());
     }
+    
+    void LockRotation()
+    {
+        // Keep the rotation on x and z axes fixed, and allow only y-axis rotation
+        Vector3 fixedRotation = transform.eulerAngles;
+        fixedRotation.x = 0f; // Lock x rotation
+        fixedRotation.z = 0f; // Lock z rotation
+        transform.eulerAngles = fixedRotation;
+    }
+
+    void Update()
+    {
+        LockRotation();
+    }
 
     IEnumerator DoctorBehaviorRoutine()
-    {
+    {        
         // Initial idle phase
         yield return IdlePhase();
 
         // Walking phase (moving through patrol points)
-        yield return WalkingPhase();
+        yield return WalkingToPatientPhase();
 
         // Talking phase
         yield return TalkingPhase();
 
-        // Loop or extend behavior as needed here
+        // Walking away phase (in reverse)
+        yield return WalkingAwayPatientPhase();
+
+        // Make the doctor disappear
+        gameObject.SetActive(false);
     }
 
     IEnumerator IdlePhase()
@@ -51,7 +69,7 @@ public class DoctorMovement : MonoBehaviour
         yield return new WaitForSeconds(idleTime);
     }
 
-    IEnumerator WalkingPhase()
+    IEnumerator WalkingToPatientPhase()
     {
         Debug.Log("Doctor starts walking.");
 
@@ -86,15 +104,77 @@ public class DoctorMovement : MonoBehaviour
     IEnumerator TalkingPhase()
     {
         Debug.Log("Doctor starts talking.");
-        
-        transform.Rotate(0, -45, 0);
+
+        yield return StartCoroutine(SmoothRotate(transform.eulerAngles.y - 45f, 1f)); 
 
         // Trigger the 'near_user' animation parameter to transition to talking
-        animator.SetTrigger("near_user");
+        animator.SetBool("talking", true);
 
         // Wait for the talking animation duration
         yield return new WaitForSeconds(talkingTime);
 
+        // Wait for the talking animation to finish
+        animator.SetBool("talking", false);
+
+        // Wait until the animation transitions out of "Talking"
+        yield return new WaitUntil(() => IsAnimationDone("Talking"));
+        
         Debug.Log("Doctor finished talking.");
+    }
+
+    IEnumerator WalkingAwayPatientPhase()
+    {
+        Debug.Log("Doctor walks away.");
+
+        yield return StartCoroutine(SmoothRotate(transform.eulerAngles.y + 225f, 1f)); 
+
+        // Trigger the 'enter' animation parameter to transition to walking
+        animator.SetTrigger("enter");
+        isMoving = true;
+
+        // Walk back through the patrol points in reverse order
+        while (currentPatrolIndex > 0)
+        {
+            currentPatrolIndex--; // Move to the previous patrol point
+            Vector3 targetPosition = patrolPoints[currentPatrolIndex].position;
+
+            // Move towards the target patrol point
+            while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, movementSpeed * Time.deltaTime);
+
+                // Face the direction of movement
+                Vector3 direction = (targetPosition - transform.position).normalized;
+                if (direction.magnitude > 0.1f)
+                    transform.forward = direction;
+
+                yield return null;
+            }
+        }
+
+        isMoving = false;
+    }
+
+    IEnumerator SmoothRotate(float targetAngleY, float duration)
+    {
+        Quaternion initialRotation = transform.rotation;
+        Quaternion targetRotation = Quaternion.Euler(0, targetAngleY, 0);
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            transform.rotation = Quaternion.Slerp(initialRotation, targetRotation, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.rotation = targetRotation; // Ensure it snaps to the exact target angle at the end
+    }
+
+
+        bool IsAnimationDone(string animationName)
+    {
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        return !stateInfo.IsName(animationName);
     }
 }

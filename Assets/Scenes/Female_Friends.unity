@@ -872,7 +872,7 @@ GameObject:
   m_Component:
   - component: {fileID: 109607854}
   m_Layer: 0
-  m_Name: PatrolPointThree
+  m_Name: pp3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -934,7 +934,7 @@ GameObject:
   m_Component:
   - component: {fileID: 111635363}
   m_Layer: 0
-  m_Name: pp22
+  m_Name: pp6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -948,13 +948,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111635362}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -43.886, y: 3.386261, z: -16.56}
+  m_LocalRotation: {x: -0, y: 0.99276364, z: -0, w: 0.120084874}
+  m_LocalPosition: {x: -17.659, y: 3.3862615, z: 1.948}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 319355884}
+  m_LocalEulerAnglesHint: {x: 0, y: 166.206, z: 0}
 --- !u!1 &119243319
 GameObject:
   m_ObjectHideFlags: 0
@@ -1321,9 +1321,9 @@ MonoBehaviour:
   patrolPoints:
   - {fileID: 1692624232}
   - {fileID: 1770414377}
-  idleTime: 5
-  talkingTime: 5
-  movementSpeed: 2
+  idleTime: 60
+  talkingTime: 30
+  movementSpeed: 1.5
 --- !u!1 &147860426
 GameObject:
   m_ObjectHideFlags: 0
@@ -2597,6 +2597,9 @@ Transform:
   - {fileID: 1584555909}
   - {fileID: 109607854}
   - {fileID: 1770414377}
+  - {fileID: 1797746544}
+  - {fileID: 111635363}
+  - {fileID: 1893939970}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &319954253 stripped
@@ -3068,7 +3071,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &413400632
 Transform:
   m_ObjectHideFlags: 0
@@ -4950,7 +4953,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1411516550990969898, guid: 1c0a1103aa90aff45a648827e87681a5, type: 3}
       propertyPath: near clip plane
-      value: 0.1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1411516550990969898, guid: 1c0a1103aa90aff45a648827e87681a5, type: 3}
       propertyPath: orthographic size
@@ -4958,19 +4961,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1411516550990969898, guid: 1c0a1103aa90aff45a648827e87681a5, type: 3}
       propertyPath: m_BackGroundColor.a
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1411516550990969898, guid: 1c0a1103aa90aff45a648827e87681a5, type: 3}
       propertyPath: m_BackGroundColor.b
-      value: 0.278431
+      value: 0.4745098
       objectReference: {fileID: 0}
     - target: {fileID: 1411516550990969898, guid: 1c0a1103aa90aff45a648827e87681a5, type: 3}
       propertyPath: m_BackGroundColor.g
-      value: 0.278431
+      value: 0.3019608
       objectReference: {fileID: 0}
     - target: {fileID: 1411516550990969898, guid: 1c0a1103aa90aff45a648827e87681a5, type: 3}
       propertyPath: m_BackGroundColor.r
-      value: 0.278431
+      value: 0.19215687
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10123,7 +10126,7 @@ MonoBehaviour:
   - {fileID: 1893939970}
   - {fileID: 111635363}
   movementSpeed: 2
-  idleTimeMin: 2
+  idleTimeMin: 4
   idleTimeMax: 5
 --- !u!4 &1248825769 stripped
 Transform:
@@ -10334,7 +10337,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1293224637
 Transform:
   m_ObjectHideFlags: 0
@@ -12227,7 +12230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1584555909}
   m_Layer: 0
-  m_Name: PatrolPointTwo
+  m_Name: pp2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14171,8 +14174,8 @@ MonoBehaviour:
   - {fileID: 109607854}
   - {fileID: 1584555909}
   movementSpeed: 1.5
-  idleTimeMin: 0.2
-  idleTimeMax: 0.3
+  idleTimeMin: 3
+  idleTimeMax: 4
 --- !u!95 &1609558167
 Animator:
   serializedVersion: 5
@@ -14617,7 +14620,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1692624232}
   m_Layer: 0
-  m_Name: PatrolPointOne
+  m_Name: pp1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15155,7 +15158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1770414377}
   m_Layer: 0
-  m_Name: PatrolPointFour
+  m_Name: pp4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15170,7 +15173,7 @@ Transform:
   m_GameObject: {fileID: 1770414376}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.103, y: 3.3862615, z: 4.853}
+  m_LocalPosition: {x: -15.304, y: 3.3862615, z: 4.364}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15217,7 +15220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1797746544}
   m_Layer: 0
-  m_Name: pp21
+  m_Name: pp5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15231,13 +15234,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1797746543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -43.886, y: 3.386261, z: -9.176}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -18.961454, y: 3.3862615, z: 8.871604}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 319355884}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1806046173
 GameObject:
   m_ObjectHideFlags: 0
@@ -15597,7 +15600,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1893939970}
   m_Layer: 0
-  m_Name: pp23
+  m_Name: pp7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15611,12 +15614,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1893939969}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -42.2, y: 0, z: -16.54}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.6354523, y: 3.3862615, z: 2.2776031}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 319355884}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1896606418
 GameObject:
@@ -17692,6 +17695,3 @@ SceneRoots:
   - {fileID: 1242094072}
   - {fileID: 1713555707}
   - {fileID: 319355884}
-  - {fileID: 1797746544}
-  - {fileID: 111635363}
-  - {fileID: 1893939970}
