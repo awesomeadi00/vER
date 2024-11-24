@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class DoctorMovement : MonoBehaviour
 {
+    public GameObject wheelChair;
+    public AudioSource doctorAudio;
     public Transform[] patrolPoints; // Array of patrol points
     public float idleTime = 5f; // Time the doctor stays idle at the beginning
     public float talkingTime = 5f; // Time the doctor spends talking at the end
@@ -14,7 +16,9 @@ public class DoctorMovement : MonoBehaviour
 
     void Start()
     {
+
         animator = GetComponent<Animator>();
+        doctorAudio = GetComponent<AudioSource>();
 
         if (patrolPoints.Length == 0)
         {
@@ -27,6 +31,8 @@ public class DoctorMovement : MonoBehaviour
             Debug.LogError("No Animator component found on this GameObject!");
             return;
         }
+
+        wheelChair.SetActive(false); 
 
         StartCoroutine(DoctorBehaviorRoutine());
     }
@@ -55,6 +61,8 @@ public class DoctorMovement : MonoBehaviour
 
         // Talking phase
         yield return TalkingPhase();
+
+        wheelChair.SetActive(true);
 
         // Walking away phase (in reverse)
         yield return WalkingAwayPatientPhase();
@@ -110,6 +118,8 @@ public class DoctorMovement : MonoBehaviour
         // Trigger the 'near_user' animation parameter to transition to talking
         animator.SetBool("talking", true);
 
+        doctorAudio.Play();
+
         // Wait for the talking animation duration
         yield return new WaitForSeconds(talkingTime);
 
@@ -118,6 +128,8 @@ public class DoctorMovement : MonoBehaviour
 
         // Wait until the animation transitions out of "Talking"
         yield return new WaitUntil(() => IsAnimationDone("Talking"));
+
+        doctorAudio.Stop();
         
         Debug.Log("Doctor finished talking.");
     }

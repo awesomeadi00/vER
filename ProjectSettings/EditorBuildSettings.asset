@@ -21,5 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Female_No-Friends.unity
     guid: 6bcc3267b26dd2142a2bab6562faa7a2
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 63af2cd6c459a4a8ea98fb4798689b64, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 29019afd4af420149952737aee2ddff9, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: adf860c9f92796046ae099cf29ae5973, type: 2}
