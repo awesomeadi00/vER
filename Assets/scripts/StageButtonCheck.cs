@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using TMPro; // Import TextMeshPro namespace
+
 
 namespace QuickVR
 {
@@ -9,6 +11,8 @@ namespace QuickVR
 
         [Header("Custom Settings")]
         public GameObject targetObject; // The object that must be active for _pressKeyToFinish to be true.
+        public TextMeshProUGUI targetText; // The TextMeshProUGUI component to update.
+
 
         #endregion
 
@@ -27,6 +31,7 @@ namespace QuickVR
             // Check for VR button press and call Finish()
             if (_pressKeyToFinish && IsRightTriggerPressed())
             {
+                UpdateText("Good Luck!");
                 Finish();
             }
         }
@@ -60,6 +65,19 @@ namespace QuickVR
         {
             // Check if the right trigger button is pressed (default Unity Input Manager mapping)
             return Input.GetAxis("Oculus_CrossPlatform_SecondaryIndexTrigger") > 0.1f;
+        }
+
+        private void UpdateText(string newText)
+        {
+            // Check if the TextMeshProUGUI component is assigned and update its text.
+            if (targetText != null)
+            {
+                targetText.text = newText;
+            }
+            else
+            {
+                Debug.LogWarning("TextMeshProUGUI component is not assigned.");
+            }
         }
 
         #endregion

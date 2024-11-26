@@ -8282,6 +8282,7 @@ MonoBehaviour:
   _instructionsTimePause: 0.5
   _guiList: []
   targetObject: {fileID: 1816413016}
+  targetText: {fileID: 1438126383}
 --- !u!1 &1196321248
 GameObject:
   m_ObjectHideFlags: 0
@@ -12128,7 +12129,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press any key to start your surgery
+  m_text: Press the right trigger button to start your surgery
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
